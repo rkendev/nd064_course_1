@@ -22,3 +22,4 @@
 
 test 11 docker push
 
+test 12 docker push
