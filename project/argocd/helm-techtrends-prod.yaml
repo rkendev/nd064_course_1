@@ -4,14 +4,16 @@ metadata:
   name: techtrends-prod
   namespace: argocd
 spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/rkendev/nd064_course_1
-    targetRevision: HEAD
-    path: project/helm
     helm:
       valueFiles:
-        - values-prod.yaml
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: default
+      - values-prod.yaml
+    path: helm
+    repoURL: https://github.com/rkendev/nd064_course_1/
+    targetRevision: HEAD
+  # Sync policy
+  syncPolicy: {}
